@@ -3,6 +3,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 const passport = require('passport');
+var path = require('path');
 
 const indexRouter = require('./routes/index');
 const loginRouter = require('./routes/login');
@@ -10,6 +11,7 @@ const usersRouter = require('./routes/users');
 const adminRouter = require('./routes/admin');
 const authRouter = require('./routes/auth');
 const productRouter = require('./routes/product');
+
 const { viewsRouter } = require('./routes/viewsRouter');
 const getUserFromJWT = require('./middlewares/get-user-from-jwt');
 const errorHandler = require('./middlewares/error-handler');
@@ -28,6 +30,7 @@ var app = express();
 
 app.use(logger('dev'));
 app.use(express.json());
+app.use('/static', express.static(path.resolve(__dirname, 'views', 'static')));
 app.use(express.static('views'));
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
