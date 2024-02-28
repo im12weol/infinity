@@ -7,6 +7,7 @@ export default class {
    *
    * @param {string} title 문서의 제목을 변경한다
    */
+
   setTitle(title) {
     document.title = title;
   }
@@ -16,22 +17,6 @@ export default class {
    * @returns {string} - content에 사용할 element 정의
    */
   async getHtml() {
-    return '';
-  }
-
-  /**
-   *
-   * @returns {string} - css의 주소(기준은 index.html)
-   */
-  getCss() {
-    return '';
-  }
-
-  /**
-   *
-   * @returns {string} - js의 주소 string (기준은 index.html)
-   */
-  getJs() {
     return '';
   }
 }
