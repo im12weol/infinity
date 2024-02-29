@@ -25,16 +25,31 @@ export const rightbar = async () => {
   let menuItems = '';
 
   // 각 prodMajorCategory에 대한 메뉴 아이템을 생성
-  uniqueMajorCategories.forEach((majorCategory) => {
+  categorys.forEach((majorCategory) => {
+    // 각 prodMajorCategory의 subCategories를 순회하며 메뉴 아이템을 생성
     const category = categorys.find(
       (category) => category.prodMajorCategory === majorCategory
     );
+    const subCategoryItems = majorCategory.prodSubCategories
+      .map(
+        (prodSubCategory) => `
+        <a href="${BASE_URI}/categorys/${prodSubCategory._id}"><li class="subCategory">${prodSubCategory.prodSubCategory}</li></a>
+  `
+      )
+      .join('');
+
     menuItems += `
-      <li><a href="${BASE_URI}/categorys/${categorysEnum[category.prodMajorCategory]}" data-link>${categorysEnum[category.prodMajorCategory]}</a></li>
+    <a href="${BASE_URI}/categorys/${categorysEnum[majorCategory.prodMajorCategory]}" data-link style="background-color=black;">${categorysEnum[majorCategory.prodMajorCategory]}</a>
+    <ul class="categorys">
+      ${subCategoryItems}
+    </ul>
   `;
   });
 
+  // 결과를 사용할 위치에 menuItems를 삽입하는 등의 작업을 수행해야 합니다.
+
   // HTML에 메뉴 아이템을 추가
+
   $leftBar.innerHTML = menuItems;
 
   document.querySelectorAll('.menu-list li a').forEach((item) => {

@@ -57,7 +57,6 @@ export default class extends AbstractView {
       <hr width="100%" />
       <h2 style="font-size: 15px">
         선택상품을<a
-          href="#"
           class="select_delete"
           style="margin: 0 0 5px 15px"
           >삭제하기</a
