@@ -41,5 +41,6 @@ export const routes = [
   { Path: '/error', View: ErrorPage, Script: errorFnc },
   { Path: '/mypage', View: Mypage, Script: mypage },
   { Path: '/payment/:orderNum', View: Payment, Script: payment },
-  { Path: '/mypageEdit', View: MypageEdit, Script: mypageEdit }
+  { Path: '/mypageEdit', View: MypageEdit, Script: mypageEdit },
+  { Path: '/orderEdit/:orderNum', View: OrderEdit, Script: orderEdit }
 ];
